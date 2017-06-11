@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta chartset="tuf-8">
+    <title>{{pageTitle}}</title>
+    <script>
+    function myFunction() {
+    document.getElementById("boet").innerHTML = "Hello World";
+}
+
+    </script>
+
+  </head>
+  <body>
+    {{> header}}
+
+    <p>Some text here</p>
+    <p>Some more text and a button</p>
+    <button type="button" onclick="myFunction()" name="button">Go Baby</button>
+    <div id="boet">
+    </div>
+
+    <p>{{ testHelper }} and another {{ fxRate.a }}</p>
+
+
+    {{> footer}}
+
+  </body>
+</html>

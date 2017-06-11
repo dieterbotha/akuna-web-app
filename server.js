@@ -1,4 +1,5 @@
 const express = require('express');
+const request = require("request");
 const hbs = require('hbs');
 
 const app = express();
@@ -23,6 +24,10 @@ hbs.registerHelper('screamIt', (text) => {
   return text.toUpperCase();
 });
 
+hbs.registerHelper('testHelper', () => {
+  return 'Dieter Botha from helper';
+});
+
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {
@@ -31,11 +36,18 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/about', (req, res) => {
-  res.render('about.hbs', {
-    pageTitle: 'About Page',
+var test = { a: 1, b: 2};
+
+app.get('/netwealth', (req, res) => {
+  res.render('netwealth.hbs', {
+    pageTitle: 'Net Wealth (server)',
+    fxRate: test
   });
 });
+
+
+
+
 
 // /bad - send back JSON with errorMessage
 app.get('/bad', (req, res) => {
